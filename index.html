@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Botileza | Gente&Cultura</title>
+    <link rel="icon" href="di.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("MEU_BOTILEZA.png ") no-repeat center center fixed;
+            background-color: #2a4971;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            overflow: auto;
+            max-height: 90vh;
+            position: relative;
+        }
+        h1 {
+            color: #2a4971;
+            text-align: center;
+        }
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+        fieldset:not(.active) {
+            display: none;
+        }
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .actions button {
+            background-color: #b54786;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img src="Missão Botileza.png" alt="Logo do Meu Botileza"></h1>
+        <form id="evaluationForm" action="https://sheetdb.io/api/v1/0y8rv1d4wdu3f" method="post">
+
+            <!-- Tela de Boas-Vindas -->
+            <fieldset class="active" id="welcomeScreen">
+                <legend>Bem-vindo ao Teste #MeuBotileza</legend>
+                <p>
+                    Na Gentil Negócios, valorizamos a excelência no atendimento ao cliente e acreditamos que cada colaborador tem um estilo único e especial que pode enriquecer a experiência de nossos clientes. Este teste tem como objetivo otimizar nosso atendimento, permitindo que cada um cumpra a jornada de atendimento Botileza de forma autêntica e personalizada.
+                </p>
+                <p>
+                    Ao responder a este questionário, você nos ajudará a identificar seus pontos fortes e áreas de melhoria, possibilitando a criação de scripts de atendimento que respeitam e valorizam sua individualidade. Queremos que você se sinta confiante e confortável ao seguir os passos da nossa jornada de atendimento, enquanto mantém seu próprio estilo e personalidade.
+                </p>
+                <p>
+                    Agradecemos sua participação e colaboração. Sua honestidade e dedicação são essenciais para continuarmos a oferecer um atendimento excepcional e encantador aos nossos clientes.
+                </p>
+                <p>
+                    Vamos juntos aprimorar nossa jornada de atendimento e destacar o melhor de cada um de nós!
+                </p>
+                <p><strong>Instruções:</strong></p>
+                <ul>
+                    <li>Responda a cada pergunta com a opção que melhor reflete suas ações e preferências.</li>
+                    <li>As respostas serão utilizadas para personalizar seu script de atendimento e identificar suas forças.</li>
+                    <li>Não há respostas certas ou erradas – o importante é ser autêntico.</li>
+                </ul>
+                <p>Obrigado por fazer parte da equipe Gentil e vamos seguir inspirando pessoas que trabalho e empreendedorismo geram prosperidade e transformam realidades!</p>
+                <div class="actions">
+                    <button type="button" id="startBtn">Iniciar Teste</button>
+                </div>
+            </fieldset>
+            
+            <!-- Dados iniciais -->
+            <fieldset id="initialData">
+                <legend>Dados Iniciais</legend>
+                <div class="input-group">
+                    <label for="nomeCompleto">Nome Completo</label>
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+                </div>
+                <div class="input-group">
+                    <label for="praca">Praça</label>
+                    <select id="praca" name="praca" required>
+                        <option value="Natal">Natal</option>
+                        <option value="Litoral Norte">Litoral Norte</option>
+                        <option value="São Luís">São Luís</option>
+                        <option value="Oeste do Maranhão">Oeste do Maranhão</option>
+                        <option value="Campina Grande">Campina Grande</option>
+                        <option value="Leste da Paraíba">Leste da Paraíba</option>
+                        <option value="Mossoró">Mossoró</option>
+                    </select>
+                <div class="input-group">
+                    <label for="Estabelecimento">Estabelecimento</label>
+                    <select id="Estabelecimento" name="Estabelecimento" required>
+                        <option value="GNCF 0095 - Escritorio Nevaldo Rocha">GNCF 0095 - Escritorio Nevaldo Rocha</option>
+                        <option value="GNCF 0049 - VD Turu">GNCF 0049 - VD Turu</option>
+                        <option value="GNCF 0091 - Supermercado Ideal">GNCF 0091 - Supermercado Ideal</option>
+                        <option value="GNCF 0093 - Assaí Campina Grande">GNCF 0093 - Assaí Campina Grande</option>
+                        <option value="GNCF 0077 - João Paulo">GNCF 0077 - João Paulo</option>
+                        <option value="VDB">VDB</option>
+                        <option value="GNCF 0054 - ER Nevaldo Rocha">GNCF 0054 - ER Nevaldo Rocha</option>
+                        <option value="GNCF 0050 - VD Partage">GNCF 0050 - VD Partage</option>
+                        <option value="GNCF 0063 - Tropical Shopping">GNCF 0063 - Tropical Shopping</option>
+                        <option value="GNCF 0051 - Macau">GNCF 0051 - Macau</option>
+                        <option value="GNCF 0027 - Via Direta">GNCF 0027 - Via Direta</option>
+                        <option value="GNCF 0006 - Centro">GNCF 0006 - Centro</option>
+                        <option value="GNCF 0068 - Shopping da Ilha">GNCF 0068 - Shopping da Ilha</option>
+                        <option value="GNCF 0047 - ER AREINHA">GNCF 0047 - ER AREINHA</option>
+                        <option value="GNCF 0015 - Shopping 10">GNCF 0015 - Shopping 10</option>
+                        <option value="GNCF 0060 - Trairi">GNCF 0060 - Trairi</option>
+                        <option value="GNCF 0057 - Pentecoste">GNCF 0057 - Pentecoste</option>
+                        <option value="GNCF 0086 - QDB Ilha">GNCF 0086 - QDB Ilha</option>
+                        <option value="GNCF 0037 - Centro Mossoro">GNCF 0037 - Centro Mossoro</option>
+                        <option value="GNCF 0094 - VD Centro CG">GNCF 0094 - VD Centro CG</option>
+                        <option value="GNCF 0005 - Tô Que Tô">GNCF 0005 - Tô Que Tô</option>
+                        <option value="GNCF 0023 - Salgado Filho">GNCF 0023 - Salgado Filho</option>
+                        <option value="GNCF 0052 - Ceara Mirim">GNCF 0052 - Ceara Mirim</option>
+                        <option value="GNCF 0020 - Extremoz">GNCF 0020 - Extremoz</option>
+                        <option value="GNCF 0084 - Golden Shopping">GNCF 0084 - Golden Shopping</option>
+                        <option value="GNCF 0053 - Touros">GNCF 0053 - Touros</option>
+                        <option value="GNCF 0036 - Sup Cidade Alternativo">GNCF 0036 - Sup Cidade Alternativo</option>
+                        <option value="GNCF 0079 - Shopping Passeio">GNCF 0079 - Shopping Passeio</option>
+                        <option value="GNCF 0056 - Paracuru">GNCF 0056 - Paracuru</option>
+                        <option value="GNCF 0059 - Paraipaba">GNCF 0059 - Paraipaba</option>
+                        <option value="GNCF 0055 - Pecém">GNCF 0055 - Pecém</option>
+                        <option value="GNCF 0064 - Cidade Operária">GNCF 0064 - Cidade Operária</option>
+                        <option value="GNCF 0001 - Matriz Parnamirim">GNCF 0001 - Matriz Parnamirim</option>
+                        <option value="GNCF 0066 - Hiper São Francisco">GNCF 0066 - Hiper São Francisco</option>
+                        <option value="GNCF 0038 - Santa Ines">GNCF 0038 - Santa Ines</option>
+                        <option value="GNCF 0085 - QDB Midway">GNCF 0085 - QDB Midway</option>
+                        <option value="GNCF 0067 - Shopping Rio Anil">GNCF 0067 - Shopping Rio Anil</option>
+                        <option value="GNCF 0046 - Ferreira Costa">GNCF 0046 - Ferreira Costa</option>
+                        <option value="GNCF 0043 - Santa Luzia">GNCF 0043 - Santa Luzia</option>
+                        <option value="GNCF 0070 - Rua Grande II">GNCF 0070 - Rua Grande II</option>
+                        <option value="GNCF 0048 - VD Marajó">GNCF 0048 - VD Marajó</option>
+                        <option value="GNCF 0069 - Patio Norte">GNCF 0069 - Patio Norte</option>
+                        <option value="GNCF 0016 - Tirol">GNCF 0016 - Tirol</option>
+                        <option value="GNCF 0030 - Maria Lacerda">GNCF 0030 - Maria Lacerda</option>
+                        <option value="GNCF 0026 - Lagoa Seca">GNCF 0026 - Lagoa Seca</option>
+                        <option value="GNCF 0042 - Santa Luzia do Parua">GNCF 0042 - Santa Luzia do Parua</option>
+                        <option value="GNCF 0018 - São Gonçalo Igapó">GNCF 0018 - São Gonçalo Igapó</option>
+                        <option value="GNCF 0058 - São Gonçalo CE">GNCF 0058 - São Gonçalo CE</option>
+                        <option value="GNCF 0017 - Midway L1">GNCF 0017 - Midway L1</option>
+                        <option value="GNCF 0028 - São Gonçalo">GNCF 0028 - São Gonçalo</option>
+                        <option value="GNCF 0007 - Potengi">GNCF 0007 - Potengi</option>
+                        <option value="GNCF 0090 - Partage CG">GNCF 0090 - Partage CG</option>
+                        <option value="GNCF 0061 - Shopping do Automóvel">GNCF 0061 - Shopping do Automóvel</option>
+                        <option value="GNCF 0019 - Midway L3">GNCF 0019 - Midway L3</option>
+                        <option value="GNCF 0010 - Praia Shopping">GNCF 0010 - Praia Shopping</option>
+                        <option value="GNCF 0008 - CCAB">GNCF 0008 - CCAB</option>
+                        <option value="GNCF 0078 - Cohatrac">GNCF 0078 - Cohatrac</option>
+                        <option value="GNCF 0035 - Quiosque Cidade Verde">GNCF 0035 - Quiosque Cidade Verde</option>
+                        <option value="GNCF 0044 - Pindare Mirim">GNCF 0044 - Pindare Mirim</option>
+                        <option value="GNCF 0074 - Rua Grande">GNCF 0074 - Rua Grande</option>
+                        <option value="GNCF 0065 - Anjo da Guarda">GNCF 0065 - Anjo da Guarda</option>
+                        <option value="GNCF 0040 - Gov Nunes Freire">GNCF 0040 - Gov Nunes Freire</option>
+                        <option value="GNCF 0003 - Maxx Atacado">GNCF 0003 - Maxx Atacado</option>
+                        <option value="GNCF 0013 - Norte Shopping">GNCF 0013 - Norte Shopping</option>
+                        <option value="GNCF 0076 - Guajajaras">GNCF 0076 - Guajajaras</option>
+                        <option value="GNCF 0088 - Luiza Motta">GNCF 0088 - Luiza Motta</option>
+                        <option value="GNCF 0002 - Natal Shopping">GNCF 0002 - Natal Shopping</option>
+                        <option value="GNCF 0080 - Itabaiana Varejo">GNCF 0080 - Itabaiana Varejo</option>
+                        <option value="GNCF 0032 - Partage Mossoró">GNCF 0032 - Partage Mossoró</option>
+                        <option value="GNCF 0073 - Curva do 90">GNCF 0073 - Curva do 90</option>
+                        <option value="GNCF 0087 - Maciel Pinheiro">GNCF 0087 - Maciel Pinheiro</option>
+                        <option value="GNCF 0062 - São Luis Shopping">GNCF 0062 - São Luis Shopping</option>
+                        <option value="GNCF 0039 - Carutapera">GNCF 0039 - Carutapera</option>
+                        <option value="GNCF 0089 - Venancio Aires">GNCF 0089 - Venancio Aires</option>
+                        <option value="GNCF 0034 - Assu">GNCF 0034 - Assu</option>
+                        <option value="GNCF 0033 - Cotovelo">GNCF 0033 - Cotovelo</option>
+                        <option value="GNCF 0029 - Currais Novos">GNCF 0029 - Currais Novos</option>
+                        <option value="GNCF 0045 - Shopping Ribamar">GNCF 0045 - Shopping Ribamar</option>
+                        <option value="GNCF 0081 - Itabaiana Atacado">GNCF 0081 - Itabaiana Atacado</option>
+                        <option value="GNCF 0012 - Cidade Jardim">GNCF 0012 - Cidade Jardim</option>
+                        <option value="GNCF 0031 - Super Cid. Jardim">GNCF 0031 - Super Cid. Jardim</option>
+                        <option value="GNCF 0009 - Alecrim">GNCF 0009 - Alecrim</option>
+                        <option value="GNCF 0075 - Shopping Caxias">GNCF 0075 - Shopping Caxias</option>
+                        <option value="GNCF 0072 - P. Preta Shopping">GNCF 0072 - P. Preta Shopping</option>
+                        <option value="GNCF 0041 - Sup Cidade Jardim">GNCF 0041 - Sup Cidade Jardim</option>
+                        <option value="GNCF 0014 - CCAB Sul">GNCF 0014 - CCAB Sul</option>
+                        <option value="GNCF 0004 - BR 101">GNCF 0004 - BR 101</option>
+                        <option value="GNCF 0024 - Parnamirim">GNCF 0024 - Parnamirim</option>
+                        <option value="GNCF 0082 - Laguna Plaza">GNCF 0082 - Laguna Plaza</option>
+                        <option value="GNCF 0071 - Shopping Imperial">GNCF 0071 - Shopping Imperial</option>
+                        <option value="GNCF 0025 - Capim Macio">GNCF 0025 - Capim Macio</option>
+                        <option value="GNCF 0003 - 13 de Maio">GNCF 003 - 13 de Maio</option>         
+                    </select>
+                </div>
+                </div>
+                <div class="actions">
+                    <button type="button" id="nextToAcolha">Próximo</button>
+                </div>
+            </fieldset>
+            
+            <!-- Acolha -->
+            <fieldset id="acolha">
+                <legend>Acolha</legend>
+                <label>1. Com que frequência você cumprimenta o cliente com um sorriso e procura entender suas necessidades?</label>
+                <select name="acolha1">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+                
+                <label>2. Você identifica o motivo da visita do cliente (uso próprio, presente, troca)?</label>
+                <select name="acolha2">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>3. Com que frequência você utiliza o CPF do cliente para identificá-lo e verificar seu histórico, se utilizando do ID Cliente?</label>
+                <select name="acolha3">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>4. Qual é a sua abordagem ao receber um novo cliente?</label>
+                <select name="acolha4">
+                    <option value="5">Saudação amigável e perguntas sobre suas necessidades</option>
+                    <option value="4">Apenas uma saudação amigável</option>
+                    <option value="3">Perguntas sobre suas necessidades sem saudação amigável</option>
+                    <option value="2">Entrega um catálogo para que o cliente escolha o produto</option>
+                    <option value="1">Nenhuma das anteriores</option>
+                </select>
+                <div class="actions">
+                    <button type="button" id="nextToPersonalize">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Personalize -->
+            <fieldset id="personalize">
+                <legend>Personalize</legend>
+                <label>1. Você consulta o histórico de compras do cliente para oferecer opções personalizadas?</label>
+                <select name="personalize1">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>2. Com que frequência você utiliza técnicas de storytelling e segredinhos ao apresentar os produtos?</label>
+                <select name="personalize2">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>3. Você convida o cliente a experimentar os produtos antes de comprar?</label>
+                <select name="personalize3">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>4. Como você utiliza o conhecimento sobre os produtos para oferecer opções personalizadas?</label>
+                <select name="personalize4">
+                    <option value="5">Oferecendo recomendações detalhadas e explicações sobre os produtos</option>
+                    <option value="4">Oferecendo algumas recomendações baseadas no histórico do cliente</option>
+                    <option value="3">Apresentando produtos sem personalização</option>
+                    <option value="2">Oferecendo apenas informações básicas sobre os produtos</option>
+                    <option value="1">Nenhuma das anteriores</option>
+                </select>
+                <div class="actions">
+                    <button type="button" id="nextToPotencialize">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Potencialize -->
+            <fieldset id="potencialize">
+                <legend>Potencialize</legend>
+                <label>1. Com que frequência você apresenta promoções e benefícios adicionais para o cliente?</label>
+                <select name="potencialize1">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>2. Você utiliza o histórico de compras do cliente para apresentar ofertas personalizadas?</label>
+                <select name="potencialize2">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>3. Como você inspira o cliente a comprar mais produtos?</label>
+                <select name="potencialize3">
+                    <option value="5">Apresentando benefícios adicionais e mostrando o valor de produtos adicionais</option>
+                    <option value="4">Oferecendo promoções e descontos</option>
+                    <option value="3">Sugerindo produtos relacionados</option>
+                    <option value="2">Somente oferecendo sugestões</option>
+                    <option value="1">Nenhuma das anteriores</option>
+                </select>
+
+                <label>4. Com que frequência você utiliza técnicas para maximizar o valor dos pedidos?</label>
+                <select name="potencialize4">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+                <div class="actions">
+                    <button type="button" id="nextToEncante">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Encante -->
+            <fieldset id="encante">
+                <legend>Encante</legend>
+                <label>1. Você finaliza o atendimento com uma abordagem amigável e positiva?</label>
+                <select name="encante1">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>2. Com que frequência você inclui toques especiais, como borrifar fragrâncias nas sacolas?</label>
+                <select name="encante2">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>3. Você menciona o programa de reciclagem ou outras iniciativas de sustentabilidade?</label>
+                <select name="encante3">
+                    <option value="5">Sempre</option>
+                    <option value="4">Frequentemente</option>
+                    <option value="3">Ocasionalmente</option>
+                    <option value="2">Raramente</option>
+                    <option value="1">Nunca</option>
+                </select>
+
+                <label>4. Como você garante que o cliente saia satisfeito com a experiência de compra?</label>
+                <select name="encante4">
+                    <option value="5">Agradecendo pessoalmente e oferecendo um brinde ou desconto</option>
+                    <option value="4">Agradecendo e mencionando o próximo passo para o cliente</option>
+                    <option value="3">Apenas agradecendo pelo atendimento</option>
+                    <option value="2">Simplesmente dizendo "até logo"</option>
+                    <option value="1">Nenhuma das anteriores</option>
+                </select>
+                <div class="actions">
+                    <button type="button" id="submitBtn">Enviar</button>
+                </div>
+            </fieldset>
+
+            <!-- Resumo -->
+            <fieldset id="summary">
+                <legend>Resumo</legend>
+                <p id="summaryText">Estamos preparando seu relatório...</p>
+                <div class="actions">
+                    <button type="button" id="nextBtn" onclick="window.location.href='new_questions.html'">Próximo</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>

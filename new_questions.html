@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Botileza | Gente&Cultura</title>
+    <link rel="icon" href="di.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("MEU_BOTILEZA.png") no-repeat center center fixed;
+            background-color: #2a4971;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            overflow-y: auto; 
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            overflow-y: auto; 
+        }
+        h1 {
+            color: #2a4971;
+            text-align: center;
+        }
+        fieldset {
+            display: none;
+        }
+        fieldset.active {
+            display: block;
+        }
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .actions button {
+            background-color: #b54786;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img src="Missão Botileza.png" alt="Logo do Meu Botileza"></h1>
+        <form id="evaluationForm">
+            <!-- Tela de Boas-Vindas -->
+            <fieldset class="active" id="welcomeScreen">
+                <legend>Parabéns por completar o Teste de Perfil Comportamental #MeuBotileza!</legend>
+                <p>
+                    Agora vamos desenvolver um
+                    Plano de Atendimento Personalizado #MeuBotileza
+                    que realça suas preferências e se alinha ao Jeito Boti de Atender. Este plano é desenhado para que você possa atender nossos clientes com excelência, mantendo sua autenticidade e personalidade.
+                </p>
+                <p>
+                    Vamos explorar suas preferências e criar um script de atendimento que maximize seus pontos fortes e lhe permita oferecer uma experiência encantadora e memorável a cada cliente.
+                </p>
+                 <p>
+                    Agradecemos sua participação e colaboração. Sua honestidade e dedicação são essenciais para continuarmos a oferecer um atendimento excepcional e encantador aos nossos clientes.
+                </p>
+                <p>
+                    Vamos juntos aprimorar nossa jornada de atendimento e destacar o melhor de cada um de nós!
+                </p>
+                <p><strong>Instruções:</strong></p>
+                <ul>
+                    <li>Responda a cada pergunta com a opção que melhor reflete suas ações e preferências.</li>
+                    <li>As respostas serão utilizadas para personalizar seu script de atendimento e identificar suas forças.</li>
+                    <li>Não há respostas certas ou erradas – o importante é ser autêntico.</li>
+                </ul>
+                <p>Obrigado por fazer parte da equipe Gentil e vamos seguir inspirando pessoas que trabalho e empreendedorismo geram prosperidade e transformam realidades!</p>
+                <div class="actions">
+                    <button type="button" id="startBtn">Iniciar Teste</button>
+                </div>
+            </fieldset>
+
+            <!-- Acolha (Receber e conhecer) -->
+            <fieldset>
+                <legend>Acolha (Receber e conhecer)</legend>
+                <div class="input-group">
+                    <label for="acolha1">1. Como você cumprimenta o cliente ao chegar?</label>
+                    <select id="acolha1" name="acolha1">
+                        <option value="12">Formal: "Olá, meu nome é _____, seja bem-vindo(a) à Boticário. Como você se chama e em que posso ajudá-lo(a) hoje?"</option>
+                        <option value="11">Neutro: "Oi, tudo bem? Posso ajudar em algo específico hoje? Me chamo ____, como posso te chamar?"</option>
+                        <option value="10">Coloquial: "E aí, beleza? O que você está procurando hoje? Meu nome é _____, e o seu?"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="acolha2">2. Como você identifica o motivo da visita do cliente?</label>
+                    <select id="acolha2" name="acolha2">
+                        <option value="12">Formal: "Posso perguntar se você está procurando algo para uso próprio, um presente, ou talvez uma troca?"</option>
+                        <option value="11">Neutro: "Você está comprando algo para você, ou é um presente? Ou talvez uma troca?"</option>
+                        <option value="10">Coloquial: "É pra você, pra dar de presente ou você quer trocar algo?"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="acolha3">3. Como você verifica o histórico do cliente?</label>
+                    <select id="acolha3" name="acolha3">
+                        <option value="12">Formal: "Posso usar seu CPF para verificar seu histórico de compras e oferecer opções mais personalizadas?"</option>
+                        <option value="11">Neutro: "Me passa seu CPF para eu dar uma olhada no seu histórico e achar algo que combine mais com você."</option>
+                        <option value="10">Coloquial: "Me dá seu CPF e rapidinho vejo o que você já comprou, do que você gosta e te mostro umas coisas legais."</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button type="button" class="prevBtn">Anterior</button>
+                    <button type="button" class="nextBtn">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Personalize (Demonstrar e experimentar) -->
+            <fieldset>
+                <legend>Personalize (Demonstrar e experimentar)</legend>
+                <div class="input-group">
+                    <label for="personalize1">1. Como você apresenta os produtos ao cliente?</label>
+                    <select id="personalize1" name="personalize1">
+                        <option value="12">Formal: "Este produto é muito popular por suas características únicas, como [características]."</option>
+                        <option value="11">Neutro: "Muita gente gosta deste aqui por causa de [características]."</option>
+                        <option value="10">Coloquial: "Esse aqui é top, o pessoal adora por causa de [características]."</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="personalize2">2. Como você convida o cliente a experimentar os produtos?</label>
+                    <select id="personalize2" name="personalize2">
+                        <option value="12">Formal: "Gostaria de experimentar este produto para ver como ele se adequa às suas necessidades?"</option>
+                        <option value="11">Neutro: "Quer testar pra ver se gosta?"</option>
+                        <option value="10">Coloquial: "Quer dar uma experimentada pra ver se curte?"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="personalize3">3. Como você utiliza storytelling e segredinhos?</label>
+                    <select id="personalize3" name="personalize3">
+                        <option value="12">Formal: "Uma curiosidade interessante sobre este produto é que ele foi desenvolvido com [história]."</option>
+                        <option value="11">Neutro: "Sabia que este produto foi criado com [história]? É bem legal!"</option>
+                        <option value="10">Coloquial: "Olha só, esse produto tem uma história bem massa, ele foi feito com [história]."</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button type="button" class="prevBtn">Anterior</button>
+                    <button type="button" class="nextBtn">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Potencialize (Oferecer benefícios e aumentar boleto) -->
+            <fieldset>
+                <legend>Potencialize (Oferecer benefícios e aumentar boleto)</legend>
+                <div class="input-group">
+                    <label for="potencialize1">1. Como você sugere produtos complementares ao cliente?</label>
+                    <select id="potencialize1" name="potencialize1">
+                        <option value="12">Formal: "Este produto funciona muito bem com [produto complementar], que tal aproveitar?"</option>
+                        <option value="11">Neutro: "Esse aqui combina muito com [produto complementar], que tal levar os dois?"</option>
+                        <option value="10">Coloquial: "Esse aqui vai ficar show com [produto complementar], que tal já aproveitar e levar junto?"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="potencialize2">2. Como você menciona promoções?</label>
+                    <select id="potencialize2" name="potencialize2">
+                        <option value="12">Formal: "Gostaria de informá-lo sobre a promoção atual que pode lhe trazer benefícios adicionais."</option>
+                        <option value="11">Neutro: "Tá rolando uma promoção que pode ser bem interessante pra você."</option>
+                        <option value="10">Coloquial: "Tá tendo uma promo massa, você pode curtir!"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="potencialize3">3. Como você finaliza as vendas?</label>
+                    <select id="potencialize3" name="potencialize3">
+                        <option value="12">Formal: "Gostaria de adicionar mais alguma coisa antes de finalizarmos?"</option>
+                        <option value="11">Neutro: "Quer levar mais alguma coisa antes de fechar?"</option>
+                        <option value="10">Coloquial: "Quer aproveitar pra levar mais alguma coisa antes de fechar?"</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button type="button" class="prevBtn">Anterior</button>
+                    <button type="button" class="nextBtn">Próximo</button>
+                </div>
+            </fieldset>
+
+            <!-- Encante (Fechar com chave de ouro) -->
+            <fieldset>
+                <legend>Encante (Fechar com chave de ouro)</legend>
+                <div class="input-group">
+                    <label for="encante1">1. Como você encerra o atendimento?</label>
+                    <select id="encante1" name="encante1">
+                        <option value="12">Formal: "Foi um prazer atendê-lo(a), espero que tenha uma excelente experiência com seu produto. Não hesite em nos procurar caso precise de algo mais."</option>
+                        <option value="11">Neutro: "Espero que você goste do seu produto, qualquer coisa estamos por aqui."</option>
+                        <option value="10">Coloquial: "Valeu por vir, espero que curta o produto. Qualquer coisa, só chamar!"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="encante2">2. Como você menciona o programa de reciclagem Boti Recicla?</label>
+                    <select id="encante2" name="encante2">
+                        <option value="12">Formal: "Gostaria de lembrar que participamos do programa Boti Recicla. Você pode trazer suas embalagens vazias para reciclagem em sua próxima visita."</option>
+                        <option value="11">Neutro: "Lembrando que temos o programa Boti Recicla, traz suas embalagens vazias na próxima vez!"</option>
+                        <option value="10">Coloquial: "Só pra lembrar, tem o programa Boti Recicla, traz suas embalagens vazias quando voltar!"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="encante3">3. Como você celebra a escolha do cliente?</label>
+                    <select id="encante3" name="encante3">
+                        <option value="12">Formal: "Parabéns pela excelente escolha! Tenho certeza de que ficará muito satisfeito(a) com seu produto."</option>
+                        <option value="11">Neutro: "Você fez uma ótima escolha, tenho certeza de que vai adorar o produto."</option>
+                        <option value="10">Coloquial: "Você mandou bem na escolha, esse produto é incrível, você vai curtir!"</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button type="button" class="prevBtn">Anterior</button>
+                    <button type="button" class="nextBtn">Concluir</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fieldsets = document.querySelectorAll('fieldset');
+            const startBtn = document.getElementById('startBtn');
+            const prevBtns = document.querySelectorAll('.prevBtn');
+            const nextBtns = document.querySelectorAll('.nextBtn');
+            let currentFieldset = 0;
+
+            startBtn.addEventListener('click', () => {
+                fieldsets[currentFieldset].classList.remove('active');
+                currentFieldset++;
+                fieldsets[currentFieldset].classList.add('active');
+            });
+
+            nextBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    fieldsets[currentFieldset].classList.remove('active');
+                    currentFieldset++;
+                    fieldsets[currentFieldset].classList.add('active');
+                });
+            });
+
+            prevBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    fieldsets[currentFieldset].classList.remove('active');
+                    currentFieldset--;
+                    fieldsets[currentFieldset].classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

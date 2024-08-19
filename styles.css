@@ -1,0 +1,107 @@
+.container h1 img {
+    max-width: 300px; 
+    height: auto;     
+    display: block;    
+    margin: 0 auto;    
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.actions {
+    text-align: right;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.button-disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.summary {
+    display: none;
+}
+
+#summaryContent {
+    margin-top: 20px;
+}
+
+/* Adiciona responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    select {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

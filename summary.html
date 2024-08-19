@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo do Relatório</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("images/MEU BOTILEZA.png") no-repeat center center fixed;
+            background-color: #2a4971;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+            text-align: center;
+        }
+        h1 {
+            color: #2a4971;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        #additionalInfo {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        #summaryText {
+            font-size: 18px;
+            color: #2a4971;
+            margin-bottom: 20px;
+        }
+        .radar-chart {
+            width: 80%;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .actions {
+            margin-top: 30px;
+        }
+        .actions a, .actions button {
+            background-color: #b54786;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .actions a:hover, .actions button:hover {
+            background-color: #a33e74;
+        }
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+        #loading img {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resumo do Relatório</h1>
+        <div id="additionalInfo">
+            <p><strong>Nome:</strong> <span id="nomeCompleto"></span></p>
+            <p><strong>Praça:</strong> <span id="praca"></span></p>
+        </div>
+        <div id="summaryText">
+            Estamos Perfumando seu Relatório...
+        </div>
+        <div id="chartContainer" class="radar-chart">
+            <!-- Gráfico Radar será inserido aqui -->
+        </div>
+        <div id="loading">
+            <p>Estamos preparando seu PDF...</p>
+            <img src="loading.gif" alt="Carregando">
+        </div>
+        <div class="actions">
+            <a id="downloadLink" href="#" download="relatorio.pdf" style="display: none;">Baixar PDF</a>
+            <button id="nextToNewQuestions">Próximo</button> <!-- Botão "Próximo" -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPDF/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const summaryText = document.getElementById('summaryText');
+            const downloadLink = document.getElementById('downloadLink');
+            const chartContainer = document.getElementById('chartContainer');
+            const loading = document.getElementById('loading');
+            const nomeCompletoElement = document.getElementById('nomeCompleto');
+            const pracaElement = document.getElementById('praca');
+            const nextButton = document.getElementById('nextButton');
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const profile = urlParams.get('profile') || 'Acolha';
+            const nomeCompleto = urlParams.get('nomeCompleto') || 'Nome Padrão';
+            const praca = urlParams.get('praca') || 'Praça Padrão';
+
+            nomeCompletoElement.textContent = nomeCompleto;
+            pracaElement.textContent = praca;
+
+            // Define as mensagens para cada perfil
+            const messages = {
+                Acolha: "Parabéns! Você demonstrou um grande talento em acolher os clientes, criando conexões significativas e entendendo suas necessidades. Seu sorriso e abordagem amigável fazem toda a diferença na experiência do cliente, e sua habilidade em identificar os motivos da visita e usar o CPF do cliente para personalizar o atendimento é admirável. Continue a usar essas técnicas para fortalecer ainda mais a relação com seus clientes. Você é uma peça fundamental para garantir que cada cliente se sinta bem-vindo e compreendido.",
+                Personalize: "Incrível! Sua capacidade de personalizar a experiência do cliente é excepcional. Você demonstra um conhecimento profundo dos produtos e utiliza técnicas de storytelling de forma eficaz, além de sempre consultar o histórico de compras para oferecer opções únicas e personalizadas. Sua abordagem ao convidar os clientes a experimentar os produtos e a conexão que você cria com eles é notável. Continue a aprimorar essas habilidades para proporcionar experiências únicas e memoráveis a cada cliente.",
+                Potencialize: "Fantástico! Você tem um talento natural para potencializar as vendas, oferecendo benefícios adicionais e aumentando o valor dos pedidos. Seu conhecimento do histórico de compras do cliente e a apresentação de promoções personalizadas mostram seu compromisso em oferecer o melhor. Sua capacidade de inspirar os clientes a comprarem mais e a maneira detalhada como você explica os benefícios adicionais são impressionantes. Continue a explorar essas habilidades para maximizar as oportunidades de venda e agregar valor para os clientes.",
+                Encante: "Maravilhoso! Você sabe como encantar os clientes, garantindo que cada interação termine de maneira memorável. Seu hábito de finalizar o atendimento com gentileza, celebrar a escolha do cliente e incluir toques especiais, como borrifar fragrâncias nas sacolas, faz toda a diferença. Sua menção ao programa de reciclagem Boti Recicla demonstra seu compromisso com a sustentabilidade. Continue a encantar os clientes com essas práticas, criando experiências únicas que farão com que eles voltem sempre."
+            };
+
+            // Atualiza o texto com base no perfil
+            summaryText.textContent = messages[profile] || messages['Acolha'];
+
+            // Função para criar o gráfico radar
+            function createRadarChart() {
+                const ctx = document.createElement('canvas');
+                chartContainer.appendChild(ctx);
+
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Acolha', 'Personalize', 'Potencialize', 'Encante'],
+                        datasets: [{
+                            label: 'Perfil',
+                            data: [
+                                profile === 'Acolha' ? 1 : 0,
+                                profile === 'Personalize' ? 1 : 0,
+                                profile === 'Potencialize' ? 1 : 0,
+                                profile === 'Encante' ? 1 : 0
+                            ],
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 1,
+                                ticks: {
+                                    stepSize: 0.2,
+                                    callback: function(value) {
+                                        return value === 1 ? 'Máximo' : 'Mínimo';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            createRadarChart();
+
+            // Exibe o link para download após o carregamento do gráfico
+            setTimeout(() => {
+                loading.style.display = 'none';
+                downloadLink.style.display = 'inline-block';
+            }, 10000); // 10 segundos de carregamento
+
+            // Navega para o próximo formulário
+            nextButton.addEventListener('click', function () {
+                const nextPageUrl = `new_questions.html?profile=${profile}&nomeCompleto=${encodeURIComponent(nomeCompleto)}&praca=${encodeURIComponent(praca)}`;
+                window.location.href = nextPageUrl;
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

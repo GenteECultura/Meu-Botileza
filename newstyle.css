@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("MEU BOTILEZA.PNG") no-repeat center center fixed;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+}
+h1 {
+    color: #2a4971;
+    text-align: center;
+}
+fieldset {
+    border: none;
+    display: none;
+    padding: 0;
+}
+fieldset.active {
+    display: block;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.actions {
+    text-align: center;
+    margin-top: 20px;
+}
+.button {
+    background-color: #2a4971;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #1a2a45;
+}
+.button-disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
