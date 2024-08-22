@@ -1,10 +1,4 @@
-.container h1 img {
-    max-width: 300px; 
-    height: auto;     
-    display: block;    
-    margin: 0 auto;    
-}
-
+/* Estilos para o container geral */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -12,23 +6,40 @@
     font-family: Arial, sans-serif;
 }
 
+/* Estilos para imagens dentro do container */
+.container h1 img {
+    max-width: 300px; 
+    height: auto;     
+    display: block;    
+    margin: 0 auto;    
+}
+
+/* Estilos para fieldsets */
 fieldset {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
+    display: none; /* Inicialmente oculta todos os fieldsets */
 }
 
+fieldset.active {
+    display: block; /* Mostra apenas o fieldset ativo */
+}
+
+/* Estilos para legend */
 legend {
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 10px;
 }
 
+/* Estilos para grupos de entrada */
 .input-group {
     margin-bottom: 15px;
 }
 
+/* Estilos para labels */
 label {
     display: block;
     font-weight: bold;
@@ -61,15 +72,33 @@ select {
     cursor: not-allowed;
 }
 
-.summary {
-    display: none;
+#resultScreen {
+    display: none; 
 }
 
-#summaryContent {
+#resultScreen.active {
+    display: block; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
     margin-top: 20px;
 }
 
-/* Adiciona responsividade */
+#resultText {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#restartBtn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 10px;
@@ -78,6 +107,28 @@ select {
     select {
         font-size: 14px;
     }
+}
+
+/* Estilos para a tela de resumo */
+#resultScreen {
+    display: none; /* Inicialmente oculta a tela de resumo */
+}
+
+#resultScreen.active {
+    display: block; /* Mostra a tela de resumo quando ativa */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#resultText {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+#thankYouScreen {
+    display: none; 
 }
 
 
