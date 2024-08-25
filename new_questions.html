@@ -236,10 +236,13 @@
     <legend>Resumo do Seu Perfil</legend>
     <p id="summaryText"></p>
     <div class="actions">
-        <button type="button" class="prevBtn">Anterior</button>
+        <a id="downloadLink" href="default.pdf" download="plano_atendimento_personalizado.pdf">
+            <button type="button">Baixar PDF</button>
+        </a>
         <button type="submit">Concluir</button>
     </div>
 </fieldset>
+
 <!-- Tela de Resultado -->
 <div id="resultScreen" class="summary">
     <h2>Resumo do Perfil</h2>
@@ -254,6 +257,7 @@
         const fieldsets = document.querySelectorAll("fieldset");
         const resultScreen = document.getElementById("resultScreen");
         const resultText = document.getElementById("resultText");
+        const downloadLink = document.getElementById("downloadLink");
         const restartBtn = document.getElementById("restartBtn");
         let currentStep = 0;
 
@@ -269,21 +273,21 @@
             const potencialize1 = parseInt(document.getElementById("potencialize1").value) || 0;
             const encante1 = parseInt(document.getElementById("encante1").value) || 0;
 
-            const totalAcolha = acolha1; // Adicione outros campos se necessário
-            const totalPersonalize = personalize1; // Adicione outros campos se necessário
-            const totalPotencialize = potencialize1; // Adicione outros campos se necessário
-            const totalEncante = encante1; // Adicione outros campos se necessário
+            const totalAcolha = acolha1;
+            const totalPersonalize = personalize1;
+            const totalPotencialize = potencialize1;
+            const totalEncante = encante1;
 
             const maxScore = Math.max(totalAcolha, totalPersonalize, totalPotencialize, totalEncante);
             let profile = "";
             let profileText = "";
+            let pdfFileName = "default.pdf";
 
             if (maxScore === totalAcolha) {
                 profile = "Acolher";
                 profileText = `
                     <strong>Perfil: Agente Acolhedor</strong><br>
                     Parabéns! Você demonstrou um grande talento em acolher os clientes, criando conexões significativas e entendendo suas necessidades.<br><br>
-
                     <strong>1. Acolha (Receber e Conhecer)</strong><br>
                     <ul>
                         <li><strong>Cumprimento do Cliente:</strong> "Olá, meu nome é [Seu Nome], seja bem-vindo(a) à Boticário. Como você se chama e em que posso ajudá-lo(a) hoje?"</li>
@@ -309,33 +313,30 @@
                         <li><strong>Mencionar o Programa Boti Recicla:</strong> "Nós temos um programa de sustentabilidade chamado Boti Recicla, nele você pode devolver embalagens e garantir algumas vantagens."</li>
                     </ul>
                 `;
+                pdfFileName = "Acolha.pdf";
             } else if (maxScore === totalPersonalize) {
                 profile = "Personalizar";
                 profileText = `
                     <strong>Perfil: Agente Personalizador</strong><br>
                     Parabéns! Você se destacou ao criar conexões significativas com os clientes, demonstrando um grande talento em entender e acolher suas necessidades.<br><br>
-                    
                     <strong>1. Acolha (Receber e Conhecer)</strong><br>
                     <ul>
                         <li><strong>Cumprimento do Cliente:</strong> "Oi, tudo bem? Posso ajudar em algo específico hoje? Me chamo [Seu Nome], como posso te chamar?"</li>
                         <li><strong>Identificação do Motivo da Visita:</strong> "Você está comprando algo para você, ou é um presente? Ou talvez uma troca?"</li>
                         <li><strong>Verificação do Histórico do Cliente:</strong> "Me passa seu CPF para eu dar uma olhada no seu histórico e achar algo que combine mais com você."</li>
                     </ul>
-                    
                     <strong>2. Personalize (Demonstrar e Experimentar)</strong><br>
                     <ul>
                         <li><strong>Apresentação dos Produtos:</strong> "Muita gente gosta deste aqui por causa de [características]."</li>
                         <li><strong>Convite para Experimentar:</strong> "Quer testar pra ver se gosta?"</li>
                         <li><strong>Utilização de Storytelling e Segredinhos:</strong> "Sabia que este produto foi criado com [história]? É bem legal!"</li>
                     </ul>
-                    
                     <strong>3. Potencialize (Oferecer Benefícios e Aumentar Boleto)</strong><br>
                     <ul>
                         <li><strong>Apresentação de Opções Adicionais:</strong> "Vendo o que você já comprou, acho que você vai curtir [produto]."</li>
                         <li><strong>Mencionar Promoções Personalizadas:</strong> "Tem uma promoção bacana no nosso app de fidelidade que acho que você vai gostar."</li>
                         <li><strong>Inspirar o Cliente a Comprar Mais:</strong> "Acho que esse conjunto aqui combina bem com o que você gosta."</li>
                     </ul>
-                    
                     <strong>4. Encante (Entregar e Celebrar)</strong><br>
                     <ul>
                         <li><strong>Finalização do Atendimento:</strong> "Obrigado(a) pela compra. Tenha um ótimo dia!"</li>
@@ -343,33 +344,30 @@
                         <li><strong>Mencionar o Programa Boti Recicla:</strong> "Você já ouviu falar sobre o Boti Recicla? Você traz as suas embalagens, ganha vantagens e ainda ajuda o meio-ambiente!"</li>
                     </ul>
                 `;
+                pdfFileName = "Personalize.pdf";
             } else if (maxScore === totalPotencialize) {
                 profile = "Potencialize";
-                profileText = `                    
-                <strong>Perfil: Agente Potencializador</strong><br>
-
-                Parabéns! Você se destacou ao maximizar as oportunidades de venda, oferecendo benefícios adicionais e aumentando o valor dos pedidos, demonstrando um grande talento em potencializar as vendas e oferecer uma experiência personalizada.<br><br>                       
+                profileText = `
+                    <strong>Perfil: Agente Potencializador</strong><br>
+                    Parabéns! Você se destacou ao maximizar as oportunidades de venda, oferecendo benefícios adicionais e aumentando o valor dos pedidos, demonstrando um grande talento em potencializar as vendas e oferecer uma experiência personalizada.<br><br>
                     <strong>1. Acolha (Receber e Conhecer)</strong><br>
                     <ul>
                         <li><strong>Cumprimento do Cliente:</strong> "Oi, tudo bem? Posso ajudar em algo específico hoje? Me chamo [Seu Nome], como posso te chamar?"</li>
                         <li><strong>Identificação do Motivo da Visita:</strong> "Você está comprando algo para você, ou é um presente? Ou talvez uma troca?"</li>
                         <li><strong>Verificação do Histórico do Cliente:</strong> "Me passa seu CPF para eu dar uma olhada no seu histórico e achar algo que combine mais com você."</li>
                     </ul>
-                    
                     <strong>2. Personalize (Demonstrar e Experimentar)</strong><br>
                     <ul>
                         <li><strong>Apresentação dos Produtos:</strong> "Muita gente gosta deste aqui por causa de [características]."</li>
                         <li><strong>Convite para Experimentar:</strong> "Quer testar pra ver se gosta?"</li>
                         <li><strong>Utilização de Storytelling e Segredinhos:</strong> "Sabia que este produto foi criado com [história]? É bem legal!"</li>
                     </ul>
-                    
                     <strong>3. Potencialize (Oferecer Benefícios e Aumentar Boleto)</strong><br>
                     <ul>
                         <li><strong>Apresentação de Opções Adicionais:</strong> "Vendo o que você já comprou, acho que você vai curtir [produto]."</li>
                         <li><strong>Mencionar Promoções Personalizadas:</strong> "Tem uma promoção bacana no nosso app de fidelidade que acho que você vai gostar."</li>
                         <li><strong>Inspirar o Cliente a Comprar Mais:</strong> "Acho que esse conjunto aqui combina bem com o que você gosta."</li>
                     </ul>
-                    
                     <strong>4. Encante (Entregar e Celebrar)</strong><br>
                     <ul>
                         <li><strong>Finalização do Atendimento:</strong> "Obrigado(a) pela compra. Tenha um ótimo dia!"</li>
@@ -377,43 +375,42 @@
                         <li><strong>Mencionar o Programa Boti Recicla:</strong> "Você já ouviu falar sobre o Boti Recicla? Você traz as suas embalagens, ganha vantagens e ainda ajuda o meio-ambiente!"</li>
                     </ul>
                 `;
+                pdfFileName = "Potencialize.pdf";
             } else if (maxScore === totalEncante) {
                 profile = "Encante";
                 profileText = `
-                    <strong>Perfil: Agente Encantador </strong><br>
-                    
-                                       
+                    <strong>Perfil: Agente Encantador</strong><br>
+                    Parabéns! Você se destacou ao oferecer uma experiência mágica e encantadora, criando um atendimento memorável para os clientes.<br><br>
                     <strong>1. Acolha (Receber e Conhecer)</strong><br>
                     <ul>
-                        <li><strong>Cumprimento do Cliente:</strong> "E aí, beleza? O que você está procurando hoje? Meu nome é [Seu Nome], e o seu?"</li>
-                        <li><strong>Identificação do Motivo da Visita:</strong> "É pra você, pra dar de presente ou você quer trocar algo?"</li>
-                        <li><strong>Verificação do Histórico do Cliente:</strong> "Me dá seu CPF e rapidinho vejo o que você já comprou, do que você gosta e te mostro umas coisas legais."</li>
+                        <li><strong>Cumprimento do Cliente:</strong> "Oi, tudo bem? Posso ajudar em algo específico hoje? Me chamo [Seu Nome], como posso te chamar?"</li>
+                        <li><strong>Identificação do Motivo da Visita:</strong> "Você está comprando algo para você, ou é um presente? Ou talvez uma troca?"</li>
+                        <li><strong>Verificação do Histórico do Cliente:</strong> "Me passa seu CPF para eu dar uma olhada no seu histórico e achar algo que combine mais com você."</li>
                     </ul>
-                    
                     <strong>2. Personalize (Demonstrar e Experimentar)</strong><br>
                     <ul>
-                        <li><strong>Apresentação dos Produtos:</strong> "Esse aqui é top, o pessoal adora por causa de [características]."</li>
-                        <li><strong>Convite para Experimentar:</strong> "Quer dar uma experimentada pra ver se curte?"</li>
-                        <li><strong>Utilização de Storytelling e Segredinhos:</strong> "Olha só, esse produto tem uma história bem massa, ele foi feito com [história]."</li>
+                        <li><strong>Apresentação dos Produtos:</strong> "Muita gente gosta deste aqui por causa de [características]."</li>
+                        <li><strong>Convite para Experimentar:</strong> "Quer testar pra ver se gosta?"</li>
+                        <li><strong>Utilização de Storytelling e Segredinhos:</strong> "Sabia que este produto foi criado com [história]? É bem legal!"</li>
                     </ul>
-                    
                     <strong>3. Potencialize (Oferecer Benefícios e Aumentar Boleto)</strong><br>
                     <ul>
-                        <li><strong>Apresentação de Opções Adicionais:</strong> "Pelas suas compras, acho que você vai gostar muito desse aqui, [produto]."</li>
-                        <li><strong>Mencionar Promoções Personalizadas:</strong> "No nosso app tem umas promos bem legais, você vai curtir."</li>
-                        <li><strong>Inspirar o Cliente a Comprar Mais:</strong> "Esse combo aqui é a sua cara, você vai adorar."</li>
+                        <li><strong>Apresentação de Opções Adicionais:</strong> "Vendo o que você já comprou, acho que você vai curtir [produto]."</li>
+                        <li><strong>Mencionar Promoções Personalizadas:</strong> "Tem uma promoção bacana no nosso app de fidelidade que acho que você vai gostar."</li>
+                        <li><strong>Inspirar o Cliente a Comprar Mais:</strong> "Acho que esse conjunto aqui combina bem com o que você gosta."</li>
                     </ul>
-                    
                     <strong>4. Encante (Entregar e Celebrar)</strong><br>
                     <ul>
-                        <li><strong>Finalização do Atendimento:</strong> "Valeu! Tenha um dia incrível!"</li>
-                        <li><strong>Celebração da Escolha do Cliente:</strong> "Boa escolha! Você vai curtir demais."</li>
-                        <li><strong>Mencionar o Programa Boti Recicla:</strong> "Valeu por comprar com a gente! Deixa eu te perguntar: você já sabe o que fazer com as caixinhas ou sacolas antigas? No programa Boti Recicla você ganha um super desconto de um jeito sustentável! Legal, né?"</li>
+                        <li><strong>Finalização do Atendimento:</strong> "Obrigado(a) pela compra. Tenha um ótimo dia!"</li>
+                        <li><strong>Celebração da Escolha do Cliente:</strong> "Ótima escolha! Você vai gostar bastante."</li>
+                        <li><strong>Mencionar o Programa Boti Recicla:</strong> "Você já ouviu falar sobre o Boti Recicla? Você traz as suas embalagens, ganha vantagens e ainda ajuda o meio-ambiente!"</li>
                     </ul>
                 `;
+                pdfFileName = "Encante.pdf";
             }
 
             resultText.innerHTML = profileText;
+            downloadLink.href = pdfFileName;  // Atualiza o link do PDF
             resultScreen.classList.add("active");
         }
 
