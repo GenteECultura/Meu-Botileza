@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const profile = getProfile(answers);
         const summaryMessage = getSummaryMessage(profile);
 
-        summaryText.innerHTML = `<strong>Nome:</strong> ${nomeCompleto}<br><strong>Praça:</strong> ${praca}<br><br>${summaryMessage.text}`;
+        summaryText.innerHTML = `<strong>CPF:</strong> ${nomeCompleto}<br><strong>Praça:</strong> ${praca}<br><br>${summaryMessage.text}`;
 
         const pdfContent = generatePDFContent(nomeCompleto, praca, summaryMessage);
         const blob = new Blob([pdfContent], { type: 'application/pdf' });
