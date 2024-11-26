@@ -25,14 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             '10': 0
         };
 
-        // Contabiliza as respostas para cada alternativa
         formData.forEach((value, key) => {
             if (value === '12') counts['12']++;
             if (value === '11') counts['11']++;
             if (value === '10') counts['10']++;
         });
 
-        // Determina a alternativa mais escolhida
         let maxAlternative = '';
         let maxCount = 0;
         for (let alternative in counts) {
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Define a mensagem personalizada baseada na alternativa mais escolhida
         const messages = {
             '12': "Parabéns! Você demonstrou um grande talento em acolher os clientes, criando conexões significativas e entendendo suas necessidades. Seu sorriso e abordagem amigável fazem toda a diferença na experiência do cliente, e sua habilidade em identificar os motivos da visita e usar o CPF do cliente para personalizar o atendimento é admirável. Continue a usar essas técnicas para fortalecer ainda mais a relação com seus clientes. Você é uma peça fundamental para garantir que cada cliente se sinta bem-vindo e compreendido.",
             '11': "Incrível! Sua capacidade de personalizar a experiência do cliente é excepcional. Você demonstra um conhecimento profundo dos produtos e utiliza técnicas de storytelling de forma eficaz, além de sempre consultar o histórico de compras para oferecer opções únicas e personalizadas. Sua abordagem ao convidar os clientes a experimentar os produtos e a conexão que você cria com eles é notável. Continue a aprimorar essas habilidades para proporcionar experiências únicas e memoráveis a cada cliente.",
