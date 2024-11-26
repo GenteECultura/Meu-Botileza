@@ -122,7 +122,6 @@
             nomeCompletoElement.textContent = nomeCompleto;
             pracaElement.textContent = praca;
 
-            // Define as mensagens para cada perfil
             const messages = {
                 Acolha: "Parabéns! Você demonstrou um grande talento em acolher os clientes, criando conexões significativas e entendendo suas necessidades. Seu sorriso e abordagem amigável fazem toda a diferença na experiência do cliente, e sua habilidade em identificar os motivos da visita e usar o CPF do cliente para personalizar o atendimento é admirável. Continue a usar essas técnicas para fortalecer ainda mais a relação com seus clientes. Você é uma peça fundamental para garantir que cada cliente se sinta bem-vindo e compreendido.",
                 Personalize: "Incrível! Sua capacidade de personalizar a experiência do cliente é excepcional. Você demonstra um conhecimento profundo dos produtos e utiliza técnicas de storytelling de forma eficaz, além de sempre consultar o histórico de compras para oferecer opções únicas e personalizadas. Sua abordagem ao convidar os clientes a experimentar os produtos e a conexão que você cria com eles é notável. Continue a aprimorar essas habilidades para proporcionar experiências únicas e memoráveis a cada cliente.",
@@ -130,10 +129,8 @@
                 Encante: "Maravilhoso! Você sabe como encantar os clientes, garantindo que cada interação termine de maneira memorável. Seu hábito de finalizar o atendimento com gentileza, celebrar a escolha do cliente e incluir toques especiais, como borrifar fragrâncias nas sacolas, faz toda a diferença. Sua menção ao programa de reciclagem Boti Recicla demonstra seu compromisso com a sustentabilidade. Continue a encantar os clientes com essas práticas, criando experiências únicas que farão com que eles voltem sempre."
             };
 
-            // Atualiza o texto com base no perfil
             summaryText.textContent = messages[profile] || messages['Acolha'];
 
-            // Função para criar o gráfico radar
             function createRadarChart() {
                 const ctx = document.createElement('canvas');
                 chartContainer.appendChild(ctx);
@@ -181,13 +178,11 @@
 
             createRadarChart();
 
-            // Exibe o link para download após o carregamento do gráfico
             setTimeout(() => {
                 loading.style.display = 'none';
                 downloadLink.style.display = 'inline-block';
             }, 10000); // 10 segundos de carregamento
 
-            // Navega para o próximo formulário
             nextButton.addEventListener('click', function () {
                 const nextPageUrl = `new_questions.html?profile=${profile}&nomeCompleto=${encodeURIComponent(nomeCompleto)}&praca=${encodeURIComponent(praca)}`;
                 window.location.href = nextPageUrl;
